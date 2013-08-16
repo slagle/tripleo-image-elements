@@ -1,1 +1,1 @@
-os-refresh-config git /opt/stack/os-refresh-config https://github.com/openstack/os-refresh-config.git
+os-refresh-config git /opt/stack/os-refresh-config https://github.com/openstack/os-refresh-config.git 4438058c8188e1104563fd7e88af4c21e903f30b

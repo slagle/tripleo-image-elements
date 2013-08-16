@@ -1,5 +1,5 @@
-python-glanceclient git /opt/stack/python-glanceclient https://github.com/openstack/python-glanceclient.git
-python-heatclient git /opt/stack/python-heatclient https://github.com/openstack/python-heatclient.git
-python-keystoneclient git /opt/stack/python-keystoneclient https://github.com/openstack/python-keystoneclient.git
-python-neutronclient git /opt/stack/python-neutronclient https://github.com/openstack/python-neutronclient.git
-python-novaclient git /opt/stack/python-novaclient https://github.com/openstack/python-novaclient.git
+python-glanceclient git /opt/stack/python-glanceclient https://github.com/openstack/python-glanceclient.git 3de64660a90f82bc146a14afda0c444d29f0b295
+python-heatclient git /opt/stack/python-heatclient https://github.com/openstack/python-heatclient.git c0457ff0d4f7c603dfd60101a76797e9fae92dc4
+python-keystoneclient git /opt/stack/python-keystoneclient https://github.com/openstack/python-keystoneclient.git 2bf87ad00a90280c131bd6a0abab2062769460dc
+python-neutronclient git /opt/stack/python-neutronclient https://github.com/openstack/python-neutronclient.git 5a382451b82a4c7fccbd6f5c4f6f270a561704b3
+python-novaclient git /opt/stack/python-novaclient https://github.com/openstack/python-novaclient.git 8dbd684a5cbf9fe5cdc0ab1f38930a6f6794726d

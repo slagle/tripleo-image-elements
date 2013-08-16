@@ -1,1 +1,1 @@
-novnc git /opt/stack/novnc https://github.com/kanaka/noVNC.git
+novnc git /opt/stack/novnc https://github.com/kanaka/noVNC.git 292f6a5da7f49b5a53761b2a214525cebdd764dd
