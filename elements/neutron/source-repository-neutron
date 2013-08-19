@@ -1,1 +1,1 @@
-neutron git /opt/stack/neutron https://github.com/openstack/neutron.git
+neutron git /opt/stack/neutron https://github.com/openstack/neutron.git 1a749a0d1d4be3dfa1bf3dcebc6d60daba4963ac
