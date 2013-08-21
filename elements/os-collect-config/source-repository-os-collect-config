@@ -1,1 +1,1 @@
-os-collect-config git /opt/stack/os-collect-config https://github.com/openstack/os-collect-config.git 0238175a8902e913cd570b1dded5c100c8674fcd
+os-collect-config git /opt/stack/os-collect-config https://github.com/openstack/os-collect-config.git 2edabf0141f733e498e3a07b673f3cf29f04ddbf

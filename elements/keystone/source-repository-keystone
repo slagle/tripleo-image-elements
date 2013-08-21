@@ -1,1 +1,1 @@
-keystone git /opt/stack/keystone https://github.com/openstack/keystone.git 14e090154c10001550127628c2728013f15d4256
+keystone git /opt/stack/keystone https://github.com/openstack/keystone.git b6f6b5795d6de11bfe9756defaaa93f6a8718a20
