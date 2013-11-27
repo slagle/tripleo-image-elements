@@ -2,8 +2,13 @@
 
 set -eux
 
+<<<<<<< HEAD
 install-packages python-pip
 
 pushd /opt/stack/diskimage-builder
 pip install .
+=======
+pushd /opt/stack/diskimage-builder
+python setup.py install
+>>>>>>> Add diskimage-builder element.
 popd
