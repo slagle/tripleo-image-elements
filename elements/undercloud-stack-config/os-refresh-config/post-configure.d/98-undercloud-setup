@@ -10,8 +10,6 @@ fi
 
 source /root/stackrc
 
-cp /root/stackrc /etc/sysconfig/undercloudrc
-
 # Add scripts directory from tripleo-incubator to the path.
 if [ ! -e /etc/profile.d/tripleo-incubator-scripts.sh ]; then
     echo export PATH=\$PATH:/opt/stack/tripleo-incubator/scripts/ >> \
@@ -36,7 +34,7 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
 # Ensure keystone is up before continuing on.
 # Waits for up to 2 minutes.
-wait_for 12 10 systemctl status keystone
+wait_for 12 10 service keystone status
 
 # Because keystone just still isn't up yet...
 sleep 20
@@ -56,7 +54,5 @@ setup-endpoints \
 keystone role-create --name heat_stack_user
 
 setup-neutron 192.0.2.5 192.0.2.24 192.0.2.0/24 192.0.2.1 $UNDERCLOUD_IP ctlplane
-
-make -C /opt/stack/tripleo-heat-templates overcloud.yaml
 
 touch $OK_FILE
