@@ -32,9 +32,14 @@ fi
 
 cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
+KEYSTONE_SERVICE=keystone
+if [ -f /lib/systemd/system/openstack-keystone.service ]; then
+    KEYSTONE_SERVICE=openstack-keystone
+fi
+
 # Ensure keystone is up before continuing on.
 # Waits for up to 2 minutes.
-wait_for 12 10 service keystone status
+wait_for 12 10 service $KEYSTONE_SERVICE status
 
 # Because keystone just still isn't up yet...
 sleep 20
