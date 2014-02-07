@@ -69,6 +69,4 @@ setup-neutron $DHCP_START $DHCP_END \
               $NETWORK_CIDR $NETWORK_GATEWAY \
               $METADATA_SERVER $PHYSICAL_NETWORK
 
-setup-neutron 192.0.2.5 192.0.2.24 192.0.2.0/24 192.0.2.1 $UNDERCLOUD_IP ctlplane
-
 touch $OK_FILE
