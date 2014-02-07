@@ -20,10 +20,10 @@ context = {
     'POWER_DRIVER': os.environ.get('POWER_DRIVER', 'nova.virt.baremetal.ipmi.IPMI'),
     'VIRTUAL_POWER_USER': os.environ.get('VIRTUAL_POWER_USER', 'stack'),
     'VIRTUAL_POWER_HOST': os.environ.get('VIRTUAL_POWER_HOST', '192.168.122.1'),
-    'DHCP_START': os.environ.get('DHCP_START': '192.0.2.5'),
-    'DHCP_END': os.environ.get('DHCP_END': '192.0.2.24'),
-    'NETWORK_CIDR': os.environ.get('NETWORK_CIDR': '192.0.2.0/24'),
-    'NETWORK_GATEWAY': os.environ.get('NETWORK_GATEWAY': '192.0.2.1'),
+    'DHCP_START': os.environ.get('DHCP_START', '192.0.2.5'),
+    'DHCP_END': os.environ.get('DHCP_END', '192.0.2.24'),
+    'NETWORK_CIDR': os.environ.get('NETWORK_CIDR', '192.0.2.0/24'),
+    'NETWORK_GATEWAY': os.environ.get('NETWORK_GATEWAY', '192.0.2.1'),
 }
 
 with open(template) as f:
