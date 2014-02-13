@@ -2,4 +2,6 @@
 
 set -eux
 
-install-packages openstack-cinder
+# lvm2 is required by our cinder script in migration.d, but not by the cinder
+# package itself.
+install-packages openstack-cinder lvm2
