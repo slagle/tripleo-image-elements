@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eux
+set -o pipefail
+
+LOCAL_DATA=$(dirname $0)/../os-collect-config-local-data
+LOCAL_DATA_TARGET=/var/lib/os-collect-config/local-data
+
+if [ -d "$LOCAL_DATA" ]; then
+    mkdir -p $LOCAL_DATA_TARGET
+    rsync --exclude='.*.swp' -Cr $LOCAL_DATA/ $LOCAL_DATA_TARGET/
+fi
