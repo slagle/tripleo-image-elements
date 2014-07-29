@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -eux
+set -o pipefail
+
+LOCAL_DATA_PATH=/var/lib/os-collect-config/local-data/01-stateful-path.json
+mkdir -p $(dirname $LOCAL_DATA_PATH)
+cat >> $LOCAL_DATA_PATH <<EOF
+{
+  "stateful-path": "$STATEFUL_PATH"
+}
+EOF
