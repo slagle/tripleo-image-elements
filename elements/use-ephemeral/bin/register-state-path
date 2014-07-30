@@ -33,7 +33,7 @@ function show_options () {
     echo "Paths are recorded in /var/lib/use-ephemeral/stateful-paths."
     echo
     echo "Options:"
-    echo "    --leave-symlink -- create a symlink from <path> to /mnt/state/<path>."
+    echo "    --leave-symlink -- create a symlink from <path> to $STATEFUL_PATH/<path>."
     echo
     exit $1
 }
@@ -69,6 +69,6 @@ if [ -e "$STATE_PATH" -o -L "$STATE_PATH" ]; then
     mkdir -p "$backup_dir"
     mv "$STATE_PATH" "$backup_dir"
 fi
-if [ -n "$LEAVE_SYMLINK" ]; then
-    ln -s "/mnt/state/$STATE_PATH" "$STATE_PATH"
+if [ -n "$LEAVE_SYMLINK" -a ! "$STATEFUL_PATH" = "/" ]; then
+    ln -s "$STATEFUL_PATH/$STATE_PATH" "$STATE_PATH"
 fi
