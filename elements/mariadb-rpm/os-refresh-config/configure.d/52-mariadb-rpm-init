@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eux
 
-MYSQL_INITIALIZED="/mnt/state/var/lib/mysql/galera.initialized"
-CLUSTER_FILE="/mnt/state/etc/mysql/conf.d/cluster.cnf"
+MYSQL_INITIALIZED=""$STATEFUL_PATH"/var/lib/mysql/galera.initialized"
+CLUSTER_FILE=""$STATEFUL_PATH"/etc/mysql/conf.d/cluster.cnf"
 
 if [ ! -e ${MYSQL_INITIALIZED} ]; then
     # systemd service script doesn't allow start mysql with optional

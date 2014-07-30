@@ -29,7 +29,7 @@ from base64 import b64encode
 logging.basicConfig()
 logger = logging.getLogger('mysql-users')
 
-# Try to connect with no password, ~/.my.cnf and /mnt/state/root/metadata.my.cnf
+# Try to connect with no password, ~/.my.cnf and "$STATEFUL_PATH"/root/metadata.my.cnf
 # in that order. This should cover os-refresh-config post install and re-image
 try:
     conn = MySQLdb.Connect()
@@ -37,7 +37,9 @@ except Exception as e:
     try:
         conn = MySQLdb.Connect(read_default_file=os.path.expanduser('~/.my.cnf'))
     except Exception as e:
-        conn = MySQLdb.Connect(read_default_file='/mnt/state/root/metadata.my.cnf')
+        conn = MySQLdb.Connect(
+                read_default_file='%s/root/metadata.my.cnf' % \
+                                   os.environ['STATEFUL_PATH'])
 cursor = conn.cursor()
 rows = cursor.execute("SELECT DISTINCT User FROM mysql.user WHERE user != ''")
 existing = set([x[0] for x in cursor.fetchmany(size=rows)])

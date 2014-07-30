@@ -8,7 +8,7 @@ set -eu
 # TODO: resize volume group in response to config changes.
 # TODO: is there a safe way to shrink a volume group?
 vol_group=cinder-volumes
-vol_file=/mnt/state/var/lib/cinder/${vol_group}-backing-file
+vol_file="$STATEFUL_PATH"/var/lib/cinder/${vol_group}-backing-file
 size=$(os-apply-config --key cinder.volume_size_mb --type int)M
 
 if ! vgs $vol_group; then

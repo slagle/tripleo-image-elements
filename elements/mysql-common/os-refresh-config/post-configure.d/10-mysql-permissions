@@ -1,4 +1,4 @@
 #!/bin/bash
 set -eu
 
-chmod 600 /mnt/state/etc/mysql/debian.cnf /mnt/state/etc/mysql/dbusers.json /mnt/state/etc/mysql/static-dbusers.json /mnt/state/root/metadata.my.cnf
+chmod 600 "$STATEFUL_PATH"/etc/mysql/debian.cnf "$STATEFUL_PATH"/etc/mysql/dbusers.json "$STATEFUL_PATH"/etc/mysql/static-dbusers.json "$STATEFUL_PATH"/root/metadata.my.cnf

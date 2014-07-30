@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-MYSQL_INITIALIZED="/mnt/state/var/lib/mysql/galera.initialized"
+MYSQL_INITIALIZED=""$STATEFUL_PATH"/var/lib/mysql/galera.initialized"
 
 pid_path=/var/run/mysqld/mysqld.pid
 mkdir -p $(dirname $pid_path)
@@ -10,7 +10,7 @@ chown mysql:root $(dirname $pid_path)
 if [ ! -e ${MYSQL_INITIALIZED} ]; then
     if os-is-bootstrap-host; then
         # Needed to setup initial tables. This command is idempotent.
-        /usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql --datadir=/mnt/state/var/lib/mysql --no-defaults --pid-file=$pid_path  --wsrep-new-cluster
+        /usr/local/mysql/scripts/mysql_install_db --user=mysql --basedir=/usr/local/mysql --datadir="$STATEFUL_PATH"/var/lib/mysql --no-defaults --pid-file=$pid_path  --wsrep-new-cluster
 
         # We install this init script so we can trust this path exists
         /etc/init.d/mysql bootstrap-pxc

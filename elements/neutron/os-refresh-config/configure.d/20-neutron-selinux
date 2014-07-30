@@ -3,11 +3,11 @@ set -eu
 
 [ -x /usr/sbin/semanage ] || exit 0
 
-semanage fcontext -a -t neutron_var_lib_t "/mnt/state/var/lib/neutron(/.*)?"
-restorecon -Rv /mnt/state/var/lib/neutron
+semanage fcontext -a -t neutron_var_lib_t ""$STATEFUL_PATH"/var/lib/neutron(/.*)?"
+restorecon -Rv "$STATEFUL_PATH"/var/lib/neutron
 
 semanage fcontext -a -t neutron_var_lib_t "/var/run/neutron(/.*)?"
 restorecon -Rv /var/run/neutron
 
-semanage fcontext -a -t neutron_log_t "/mnt/state/var/log/neutron(/.*)?"
-restorecon -Rv /mnt/state/var/log/neutron
+semanage fcontext -a -t neutron_log_t ""$STATEFUL_PATH"/var/log/neutron(/.*)?"
+restorecon -Rv "$STATEFUL_PATH"/var/log/neutron

@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eux
 
-mkdir -p /mnt/state/var/lib/nova/instances/_base
-chown nova:kvm /mnt/state/var/lib/nova/instances
-chown nova:kvm /mnt/state/var/lib/nova/instances/_base
-chmod 750 /mnt/state/var/lib/nova/instances
-chmod 750 /mnt/state/var/lib/nova/instances/_base
+mkdir -p "$STATEFUL_PATH"/var/lib/nova/instances/_base
+chown nova:kvm "$STATEFUL_PATH"/var/lib/nova/instances
+chown nova:kvm "$STATEFUL_PATH"/var/lib/nova/instances/_base
+chmod 750 "$STATEFUL_PATH"/var/lib/nova/instances
+chmod 750 "$STATEFUL_PATH"/var/lib/nova/instances/_base

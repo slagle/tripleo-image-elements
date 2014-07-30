@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-parent_dir=/mnt/state/var/lib/ironic
+parent_dir="$STATEFUL_PATH"/var/lib/ironic
 
 # Ensure the images and master-images directories exist and are owned by ironic
 install -d -m 0755 -o ironic -g ironic $parent_dir
@@ -15,7 +15,7 @@ os-svc-enable -n ironic-conductor
 service ironic-conductor restart
 
 # ssh really wants these permissions
-chmod 600 /mnt/state/var/lib/ironic/virtual-power-key
+chmod 600 "$STATEFUL_PATH"/var/lib/ironic/virtual-power-key
 
 # make sure ironic can read the ssh key
-chown ironic:ironic /mnt/state/var/lib/ironic/virtual-power-key
+chown ironic:ironic "$STATEFUL_PATH"/var/lib/ironic/virtual-power-key

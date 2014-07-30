@@ -5,5 +5,5 @@ set -eux
 
 [ -x /usr/sbin/semanage ] || exit 0
 
-semanage fcontext -a -t cert_t "/mnt/state/etc/keystone/ssl(/.*)?"
-restorecon -Rv /mnt/state/etc/keystone/ssl
+semanage fcontext -a -t cert_t ""$STATEFUL_PATH"/etc/keystone/ssl(/.*)?"
+restorecon -Rv "$STATEFUL_PATH"/etc/keystone/ssl

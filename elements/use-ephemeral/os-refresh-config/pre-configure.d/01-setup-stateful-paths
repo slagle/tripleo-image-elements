@@ -23,7 +23,7 @@ if [ ! -e "/var/lib/use-ephemeral/stateful-paths" ]; then
 fi
 
 while read -r; do
-    state_path="/mnt/state$REPLY"
+    state_path=""$STATEFUL_PATH"$REPLY"
     state_dir=$(dirname "$state_path")
     reference_path="/var/lib/use-ephemeral$REPLY"
     mkdir -p "$state_dir"
