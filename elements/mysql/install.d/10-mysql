@@ -21,7 +21,7 @@ install -o root -g root -m 0755 bin/mysql /usr/local/bin
 install -o root -g root -m 0755 bin/mysqld /usr/local/bin
 sed -i -e 's,^#\!/bin/sh$,#\!/bin/bash,' /etc/init.d/mysql
 sed -i -e 's,^basedir=$,basedir=/usr/local/mysql,' /etc/init.d/mysql
-sed -i -e 's,^datadir=$,datadir=/mnt/state/var/lib/mysql,' /etc/init.d/mysql
+sed -i -e 's,^datadir=$,datadir="$STATEFUL_PATH"/var/lib/mysql,' /etc/init.d/mysql
 
 # The following line are due to a bug found in the Percona supplied init
 # script where the start sequence does not capture and return an error
@@ -36,17 +36,17 @@ else
     echo "WARNING: use of the updated percona-xtradb-cluster release."
 fi
 
-# Templates write the configs into /mnt/state. However, MySQL makes it very
+# Templates write the configs into "$STATEFUL_PATH". However, MySQL makes it very
 # difficult not to use this as the directory for configs.
 rm -rf /etc/mysql
-ln -s /mnt/state/etc/mysql /etc/mysql
+ln -s "$STATEFUL_PATH"/etc/mysql /etc/mysql
 if [ -e /etc/apparmor.d/usr.sbin.mysqld ] ; then
-    sed -i -e 's,/var/lib/mysql/,/mnt/state/var/lib/mysql/,g' /etc/apparmor.d/usr.sbin.mysqld
-    sed -i -e 's,/var/log/mysql/,/mnt/state/var/log/mysql/,g' /etc/apparmor.d/usr.sbin.mysqld
-    sed -i -e 's,/etc/mysql/,/mnt/state/etc/mysql/,g' /etc/apparmor.d/usr.sbin.mysqld
+    sed -i -e 's,/var/lib/mysql/,"$STATEFUL_PATH"/var/lib/mysql/,g' /etc/apparmor.d/usr.sbin.mysqld
+    sed -i -e 's,/var/log/mysql/,"$STATEFUL_PATH"/var/log/mysql/,g' /etc/apparmor.d/usr.sbin.mysqld
+    sed -i -e 's,/etc/mysql/,"$STATEFUL_PATH"/etc/mysql/,g' /etc/apparmor.d/usr.sbin.mysqld
 fi
 if [ -e /etc/init/mysql.conf ]; then
-    sed -i -e 's,/var/lib/mysql/,/mnt/state/var/lib/mysql/,g' /etc/init/mysql.conf
+    sed -i -e 's,/var/lib/mysql/,"$STATEFUL_PATH"/var/lib/mysql/,g' /etc/init/mysql.conf
 fi
 # Fedora/RHEL install /etc/my.cnf but we do not want any unmanaged configs
 rm -f /etc/my.cnf

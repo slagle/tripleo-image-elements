@@ -11,7 +11,7 @@ semanage fcontext -a -t mysqld_db_t ""$STATEFUL_PATH"/var/lib/mysql(/.*)?"
 restorecon -Rv "$STATEFUL_PATH"/var/lib/mysql
 semanage fcontext -a -t mysqld_log_t ""$STATEFUL_PATH"/var/log/mysql(/.*)?"
 restorecon -Rv "$STATEFUL_PATH"/var/log/mysql
-[ -d "$STATEFUL_PATH"/etc/mysql ] || install -m 0755 -o mysql -g mysql -d /mnt/state/etc/mysql
+[ -d "$STATEFUL_PATH"/etc/mysql ] || install -m 0755 -o mysql -g mysql -d "$STATEFUL_PATH"/etc/mysql
 semanage fcontext -a -t mysqld_etc_t ""$STATEFUL_PATH"/etc/mysql(/.*)?"
 restorecon -Rv "$STATEFUL_PATH"/etc/mysql
 

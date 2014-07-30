@@ -2,7 +2,7 @@
 
 set -eux
 
-[ -d "$STATEFUL_PATH"/var/log/rabbitmq ] || install -d -D -m 0770 -o rabbitmq -g rabbitmq /mnt/state/var/log/rabbitmq
+[ -d "$STATEFUL_PATH"/var/log/rabbitmq ] || install -d -D -m 0770 -o rabbitmq -g rabbitmq "$STATEFUL_PATH"/var/log/rabbitmq
 
 os-svc-enable -n rabbitmq-server
 os-svc-restart -n rabbitmq-server

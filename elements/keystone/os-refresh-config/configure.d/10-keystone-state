@@ -1,8 +1,8 @@
 #!/bin/bash
 set -eux
 
-[ -d "$STATEFUL_PATH"/etc/keystone/ssl/certs ] || install -m 0750 -o keystone -g keystone -d /mnt/state/etc/keystone/ssl/certs
-[ -d "$STATEFUL_PATH"/etc/keystone/ssl/private ] || install -m 0750 -o keystone -g keystone -d /mnt/state/etc/keystone/ssl/private
+[ -d "$STATEFUL_PATH"/etc/keystone/ssl/certs ] || install -m 0750 -o keystone -g keystone -d "$STATEFUL_PATH"/etc/keystone/ssl/certs
+[ -d "$STATEFUL_PATH"/etc/keystone/ssl/private ] || install -m 0750 -o keystone -g keystone -d "$STATEFUL_PATH"/etc/keystone/ssl/private
 
 # precreate ssl key file with correct permissions
 # TODO: this can be replaced with mode metadata header when supported in

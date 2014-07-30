@@ -50,9 +50,9 @@ fi
 
 
 cat > /etc/rabbitmq/rabbitmq-env.conf <<EOF
-HOME=/mnt/state/var/lib/rabbitmq
-LOG_BASE=/mnt/state/var/log/rabbitmq
-MNESIA_BASE=/mnt/state/var/lib/rabbitmq/mnesia
+HOME="$STATEFUL_PATH"/var/lib/rabbitmq
+LOG_BASE="$STATEFUL_PATH"/var/log/rabbitmq
+MNESIA_BASE="$STATEFUL_PATH"/var/lib/rabbitmq/mnesia
 PID_FILE=/var/run/rabbitmq/pid
 EOF
 

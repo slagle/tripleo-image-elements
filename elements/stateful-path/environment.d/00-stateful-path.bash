@@ -1,1 +1,1 @@
-export STATEFUL_PATH=${STATEFUL_PATH:-"/mnt/state"}
+export STATEFUL_PATH=${STATEFUL_PATH:-""$STATEFUL_PATH""}
