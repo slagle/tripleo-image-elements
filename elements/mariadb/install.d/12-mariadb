@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -eu
+set -o pipefail
+
+# We do not want the mysql service to be automatically started by native
+# systemd LSB support.
+chkconfig --del mysql
